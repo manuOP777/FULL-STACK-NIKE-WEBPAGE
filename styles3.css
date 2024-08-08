@@ -1,0 +1,45 @@
+/* Add any additional styles required for the Checkout Page */
+.checkout-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+.checkout-form h2 {
+    margin-top: 20px;
+}
+
+.checkout-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.checkout-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.order-summary {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.order-summary p {
+    font-size: 18px;
+}
+
+.checkout-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.checkout-form button:hover {
+    background-color: #45a049;
+}

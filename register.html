@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Fashion Brand</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+      background-image: url('bg2.jpg');
+    }
+    </style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpeg" alt="Fashion Brand Logo">
+            Fashion Brand
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+        </div>
+    </header>
+    <main>
+        <section class="register">
+            <h2>Create an Account</h2>
+            <form action="register-success.html" method="post">
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <button type="submit" class="btn-submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Login here</a>.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fashion Brand</p>
+        <div class="social-links">
+            <a href="facebook.com">Facebook</a>
+            <a href="instagram.com">Instagram</a>
+            <a href="x.com">x</a>
+        </div>
+        <div class="newsletter">
+            <input type="email" placeholder="Subscribe to our newsletter">
+            <button>Subscribe</button>
+        </div>
+    </footer>
+</body>
+</html>

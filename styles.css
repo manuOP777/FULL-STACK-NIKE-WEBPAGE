@@ -1,0 +1,430 @@
+To add the functionality to remove products from the cart on the `cart.html` page, we can use JavaScript to handle the removal process. Below is the updated `cart.html` with the required JavaScript function:
+
+### Updated Cart Page (cart.html)
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function removeItem(itemId) {
+            // Get the item element by ID
+            var item = document.getElementById(itemId);
+            // Remove the item element from the DOM
+            item.remove();
+            // Optionally, update the cart summary (if this were tied to a backend, you would update the server as well)
+            updateCartSummary();
+        }
+
+        function updateCartSummary() {
+            // Calculate the total order value based on remaining items
+            var items = document.querySelectorAll('.cart-item');
+            var totalOrderValue = 0;
+            items.forEach(function(item) {
+                var itemTotal = parseFloat(item.querySelector('.item-total').textContent.replace('$', ''));
+                totalOrderValue += itemTotal;
+            });
+            // Update the summary section
+            document.querySelector('.order-value').textContent = '$' + totalOrderValue.toFixed(2);
+            document.querySelector('.final-amount').textContent = '$' + totalOrderValue.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Fashion Brand Logo">
+            Fashion Brand
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+        </div>
+    </header>
+    <main>
+        <section class="cart">
+            <h2>Your Shopping Cart</h2>
+            <div class="cart-items">
+                <div class="cart-item" id="item1">
+                    <img src="img1.jpeg" alt="Product 1">
+                    <div class="item-details">
+                        <h3>Nike Shoes</h3>
+                        <p>Size: M</p>
+                        <p>Quantity: 1</p>
+                        <p class="item-total">$100</p>
+                        <button onclick="removeItem('item1')">Remove</button>
+                    </div>
+                </div>
+                <div class="cart-item" id="item2">
+                    <img src="img2.jpeg" alt="Product 2">
+                    <div class="item-details">
+                        <h3>Adidas Jacket</h3>
+                        <p>Size: L</p>
+                        <p>Quantity: 1</p>
+                        <p class="item-total">$120</p>
+                        <button onclick="removeItem('item2')">Remove</button>
+                    </div>
+                </div>
+                <div class="cart-item" id="item3">
+                    <img src="img3.jpeg" alt="Product 3">
+                    <div class="item-details">
+                        <h3>Puma T-shirt</h3>
+                        <p>Size: S</p>
+                        <p>Quantity: 1</p>
+                        <p class="item-total">$50</p>
+                        <button onclick="removeItem('item3')">Remove</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-summary">
+                <h3>Order Summary</h3>
+                <p>Total Order Value: <span class="order-value">$270</span></p>
+                <p>Discount: $0</p>
+                <p>Final Amount: <span class="final-amount">$270</span></p>
+                <button>Proceed to Checkout</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fashion Brand</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <div class="newsletter">
+            <input type="email" placeholder="Subscribe to our newsletter">
+            <button>Subscribe</button>
+        </div>
+    </footer>
+</body>
+</html>
+```
+
+### CSS (styles.css)
+
+```css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+.logo img {
+    max-height: 40px;
+    margin-right: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.search-bar {
+    display: flex;
+}
+
+.search-bar input {
+    padding: 5px;
+}
+
+.hero {
+    background: url('hero.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+}
+
+.hero p {
+    font-size: 24px;
+}
+
+.latest-products {
+    padding: 20px;
+    text-align: center;
+}
+
+.latest-products h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.product-card p {
+    margin: 5px 0;
+}
+
+.product-card button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: #45a049;
+}
+
+.selling-points {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.selling-points h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.selling-point {
+    display: inline-block;
+    margin: 20px;
+    font-size: 18px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    flex-wrap: wrap;
+}
+
+footer .social-links a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+footer .newsletter {
+    display: flex;
+    align-items: center;
+}
+
+footer .newsletter input {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+footer .newsletter button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer .newsletter button:hover {
+    background-color: #45a049;
+}
+
+.cart {
+    padding: 20px;
+    text-align: center;
+}
+
+.cart h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cart-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.cart-item {
+    display: flex;
+    border: 1px solid #ddd;
+    padding: 20px;
+    align-items: center;
+}
+
+.cart-item img {
+    max-width: 100px;
+    margin-right: 20px;
+}
+
+.item-details {
+    text-align: left;
+}
+
+.cart-summary {
+    margin-top: 20px;
+}
+
+.cart-summary h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.cart-summary p {
+    font-size: 18px;
+}
+
+.cart-summary button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-summary button:hover {
+    background-color: #45a049;
+}
+/* Existing styles above remain unchanged */
+
+/* Checkout page styles */
+.checkout {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.checkout h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.checkout form {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 24px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px); /* Adjust for padding */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.order-summary {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.order-summary p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.order-summary .final-amount {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* Ensure form elements are spaced nicely */
+input, button {
+    margin-bottom: 15px;
+}
+
+

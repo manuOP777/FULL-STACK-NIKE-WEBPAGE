@@ -1,0 +1,44 @@
+/* Add any additional styles required for the Product Listing Page */
+.filters {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.filters select {
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.product-card p {
+    margin: 5px 0;
+}
+
+.product-card button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: #45a049;
+}

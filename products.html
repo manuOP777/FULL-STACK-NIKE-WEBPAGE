@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function addToCart(productId, productName, productPrice, productImage) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push({ id: productId, name: productName, price: productPrice, image: productImage });
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            alert(`${productName} has been added to your cart!`);
+        }
+    </script>
+</head>
+<style>
+    body {
+      background-image: url('bg2.jpg');
+    }
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpeg" alt="Nike">
+            Fashion Brand
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Our Products</h1>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="airmax.jpg" alt="Nike Shoes">
+                <h3>Nike Air Max</h3>
+                <p>$120</p>
+                <button onclick="addToCart('product1', 'Nike Air Max', '$120', 'airmax.jpg')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="tshirt.avif" alt="Nike Shirt">
+                <h3>Nike Dri-FIT Shirt</h3>
+                <p>$40</p>
+                <button onclick="addToCart('product2', 'Nike Dri-FIT Shirt', '$40', 'tshirt.avif')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="jacket.avif" alt="Nike Jacket">
+                <h3>Nike Windrunner Jacket</h3>
+                <p>$90</p>
+                <button onclick="addToCart('product3', 'Nike Windrunner Jacket', '$90', 'jacket.avif')">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fashion Brand</p>
+        <div class="social-links">
+            <a href="facebook.com">Facebook</a>
+            <a href="instagram.com">Instagram</a>
+            <a href="x.com">X</a>
+        </div>
+    </footer>
+</body>
+</html>

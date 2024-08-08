@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+      background-image: url('bg2.jpg');
+    }
+    </style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpeg" alt="Fashion Brand Logo">
+            Fashion Brand
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+        </div>
+    </header>
+    <main>
+        <section class="checkout">
+            <h2>Checkout</h2>
+            <form action="process_order.php" method="post">
+                <fieldset>
+                    <legend>Shipping Information</legend>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                    
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                    
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="state" required>
+                    
+                    <label for="zip">ZIP Code:</label>
+                    <input type="text" id="zip" name="zip" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </fieldset>
+                <fieldset>
+                    <legend>Billing Information</legend>
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" name="card-number" required>
+                    
+                    <label for="exp-date">Expiration Date:</label>
+                    <input type="text" id="exp-date" name="exp-date" required>
+                    
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                </fieldset>
+                <fieldset class="order-summary">
+                    <legend>Order Summary</legend>
+                    <p>Total Amount: <span class="final-amount">$270</span></p>
+                </fieldset>
+                <button type="submit">Place Order</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fashion Brand</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <div class="newsletter">
+            <input type="email" placeholder="Subscribe to our newsletter">
+            <button>Subscribe</button>
+        </div>
+    </footer>
+</body>
+</html>

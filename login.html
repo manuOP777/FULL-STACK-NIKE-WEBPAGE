@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+      background-image: url('bg.jpeg');
+    }
+    </style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpeg" alt="Fashion Brand Logo">
+            Fashion Brand
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+        </div>
+    </header>
+    <main>
+        <section class="login-form">
+            <h2>Login</h2>
+            <form action="dashboard.html" method="POST">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fashion Brand</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <div class="newsletter">
+            <input type="email" placeholder="Subscribe to our newsletter">
+            <button>Subscribe</button>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.search-bar input {
+    padding: 5px;
+    font-size: 16px;
+}
+
+main {
+    padding: 20px;
+}
+
+.cart, .checkout {
+    max-width: 800px;
+    margin: auto;
+}
+
+.cart-items, .checkout form {
+    margin-bottom: 20px;
+}
+
+.cart-item, .checkout form fieldset {
+    border: 1px solid #ddd;
+    padding: 15
+)

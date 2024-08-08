@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function removeItem(index) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            displayCartItems();
+        }
+
+        function displayCartItems() {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            let cartItemsContainer = document.querySelector('.cart-items');
+            let totalOrderValue = 0;
+
+            cartItemsContainer.innerHTML = '';
+            cartItems.forEach((item, index) => {
+                totalOrderValue += parseFloat(item.price.replace('$', ''));
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item" id="item${index}">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="item-details">
+                            <h3>${item.name}</h3>
+                            <p>Quantity: 1</p>
+                            <p class="item-total">${item.price}</p>
+                            <button onclick="removeItem(${index})">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.querySelector('.order-value').textContent = '$' + totalOrderValue.toFixed(2);
+            document.querySelector('.final-amount').textContent = '$' + totalOrderValue.toFixed(2);
+        }
+
+        window.onload = displayCartItems;
+    </script>
+</head>
+<style>
+    body {
+      background-image: url('bg2.jpg');
+    }
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpeg" alt="Fashion Brand Logo">
+            Fashion Brand
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+        </div>
+    </header>
+    <main>
+        <section class="cart">
+            <h2>Your Shopping Cart</h2>
+            <div class="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <div class="cart-summary">
+                <h3>Order Summary</h3>
+                <p>Total Order Value: <span class="order-value">$0.00</span></p>
+                <p>Discount: $0</p>
+                <p>Final Amount: <span class="final-amount">$0.00</span></p>
+                <a href="checkoutpage.html">Proceed to Checkout</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Fashion Brand</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <div class="newsletter">
+            <input type="email" placeholder="Subscribe to our newsletter">
+            <button>Subscribe</button>
+        </div>
+    </footer>
+</body>
+</html>
